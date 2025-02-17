@@ -50,8 +50,6 @@ knn = cv2.ml.KNearest_create()
 train = np.array(priz,dtype=np.float32)
 train = train.reshape(train.shape[0], -1)
 response = np.array(labels,dtype=np.float32).reshape(-1,1)
-print(train.shape)
-print(response.shape)
 knn.train(train, cv2.ml.ROW_SAMPLE, response)
 for i in range(6):
     test_image =cv2.imread(f"{i}.png",cv2.IMREAD_GRAYSCALE)
@@ -77,6 +75,4 @@ for i in range(6):
                 letter=letter[1]
         string+=letter
         isfirst=1
-    print(string)
-    plt.imshow(test_image)
-    plt.show()
+    print(i,string)
